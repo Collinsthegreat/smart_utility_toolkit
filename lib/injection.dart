@@ -9,6 +9,10 @@ import 'features/notes/domain/usecases/get_all_notes.dart';
 import 'features/notes/domain/usecases/search_notes.dart';
 import 'features/notes/domain/usecases/update_note.dart';
 import 'features/notes/presentation/bloc/notes_bloc.dart';
+import 'features/tasks/data/datasources/tasks_local_datasource.dart';
+import 'features/tasks/data/repositories/tasks_repository_impl.dart';
+import 'features/tasks/domain/usecases/task_usecases.dart';
+import 'features/tasks/presentation/bloc/tasks_bloc.dart';
 
 /// Global service locator.
 final GetIt sl = GetIt.instance;
@@ -37,6 +41,28 @@ Future<void> configureDependencies() async {
     createNote: sl<CreateNote>(),
     updateNote: sl<UpdateNote>(),
     deleteNote: sl<DeleteNote>(),
+  ));
+
+  // --- Tasks Dependencies ---
+  final tasksBox = Hive.box<dynamic>(AppConstants.tasksBox);
+  
+  sl.registerLazySingleton(() => TasksLocalDataSource(tasksBox));
+  sl.registerLazySingleton(() => TasksRepositoryImpl(sl<TasksLocalDataSource>()));
+  
+  sl.registerLazySingleton(() => GetAllTasks(sl<TasksRepositoryImpl>()));
+  sl.registerLazySingleton(() => CreateTask(sl<TasksRepositoryImpl>()));
+  sl.registerLazySingleton(() => UpdateTask(sl<TasksRepositoryImpl>()));
+  sl.registerLazySingleton(() => DeleteTask(sl<TasksRepositoryImpl>()));
+  sl.registerLazySingleton(() => ToggleTaskCompletion(sl<TasksRepositoryImpl>()));
+  sl.registerLazySingleton(() => FilterTasks());
+
+  sl.registerFactory(() => TasksBloc(
+    getAllTasks: sl<GetAllTasks>(),
+    createTask: sl<CreateTask>(),
+    updateTask: sl<UpdateTask>(),
+    deleteTask: sl<DeleteTask>(),
+    toggleTaskCompletion: sl<ToggleTaskCompletion>(),
+    filterTasks: sl<FilterTasks>(),
   ));
 }
 

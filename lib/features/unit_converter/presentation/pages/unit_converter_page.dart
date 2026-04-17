@@ -42,7 +42,7 @@ class UnitConverterPage extends StatelessWidget {
                   children: <Widget>[
                     Expanded(
                       child: DropdownButtonFormField<String>(
-                        value: state.from,
+                        initialValue: state.from,
                         decoration: const InputDecoration(labelText: AppStrings.from),
                         items: currentUnits
                             .map((String e) => DropdownMenuItem<String>(value: e, child: Text(e)))
@@ -64,7 +64,7 @@ class UnitConverterPage extends StatelessWidget {
                     const SizedBox(width: AppSizes.sm),
                     Expanded(
                       child: DropdownButtonFormField<String>(
-                        value: state.to,
+                        initialValue: state.to,
                         decoration: const InputDecoration(labelText: AppStrings.to),
                         items: currentUnits
                             .map((String e) => DropdownMenuItem<String>(value: e, child: Text(e)))
@@ -88,7 +88,7 @@ class UnitConverterPage extends StatelessWidget {
                 Text(AppStrings.results, style: Theme.of(context).textTheme.titleMedium),
                 const SizedBox(height: AppSizes.sm),
                 if (state.history.isEmpty)
-                  Center(child: Text(AppStrings.noHistory))
+                  const Center(child: Text(AppStrings.noHistory))
                 else
                   ...state.history.map(
                     (conversion) => Card(

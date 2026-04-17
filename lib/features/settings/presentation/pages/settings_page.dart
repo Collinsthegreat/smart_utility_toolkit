@@ -31,7 +31,7 @@ class SettingsPage extends StatelessWidget {
                     context.read<SettingsBloc>().add(ThemeModeChanged(mode));
                   }
                 },
-                title: Text(AppStrings.system),
+                title: const Text(AppStrings.system),
               ),
               RadioListTile<AppThemeMode>(
                 value: AppThemeMode.light,
@@ -41,7 +41,7 @@ class SettingsPage extends StatelessWidget {
                     context.read<SettingsBloc>().add(ThemeModeChanged(mode));
                   }
                 },
-                title: Text(AppStrings.light),
+                title: const Text(AppStrings.light),
               ),
               RadioListTile<AppThemeMode>(
                 value: AppThemeMode.dark,
@@ -51,13 +51,13 @@ class SettingsPage extends StatelessWidget {
                     context.read<SettingsBloc>().add(ThemeModeChanged(mode));
                   }
                 },
-                title: Text(AppStrings.dark),
+                title: const Text(AppStrings.dark),
               ),
               const SizedBox(height: AppSizes.lg),
               Text(AppStrings.currencyPreference, style: Theme.of(context).textTheme.titleMedium),
               const SizedBox(height: AppSizes.sm),
               DropdownButtonFormField<String>(
-                value: state.currency,
+                initialValue: state.currency,
                 items: const <String>['USD', 'EUR', 'GBP', 'NGN']
                     .map((String value) => DropdownMenuItem<String>(value: value, child: Text(value)))
                     .toList(),
@@ -70,7 +70,7 @@ class SettingsPage extends StatelessWidget {
               ),
               const SizedBox(height: AppSizes.lg),
               ListTile(
-                title: Text(AppStrings.clearAllHistory),
+                title: const Text(AppStrings.clearAllHistory),
                 trailing: const Icon(Icons.delete_outline),
                 onTap: () {
                   showDialog<bool>(
@@ -96,7 +96,7 @@ class SettingsPage extends StatelessWidget {
                 },
               ),
               ListTile(
-                title: Text(AppStrings.clearAllNotes),
+                title: const Text(AppStrings.clearAllNotes),
                 trailing: const Icon(Icons.delete_forever_outlined),
                 onTap: () {
                   showDialog<bool>(
@@ -123,7 +123,7 @@ class SettingsPage extends StatelessWidget {
               ),
               const SizedBox(height: AppSizes.lg),
               ListTile(
-                title: Text(AppStrings.rateThisApp),
+                title: const Text(AppStrings.rateThisApp),
                 trailing: const Icon(Icons.star_border),
                 onTap: () {},
               ),

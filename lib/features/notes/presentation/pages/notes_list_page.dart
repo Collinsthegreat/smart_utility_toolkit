@@ -1,17 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive/hive.dart';
-import '../../../../core/constants/app_constants.dart';
 import '../../../../core/constants/app_strings.dart';
 import '../../../../core/widgets/empty_state_widget.dart';
 import '../../../../core/widgets/loading_widget.dart';
-import '../../data/datasources/notes_local_datasource.dart';
-import '../../data/repositories/notes_repository_impl.dart';
-import '../../domain/usecases/create_note.dart';
-import '../../domain/usecases/delete_note.dart' as notes_usecases;
-import '../../domain/usecases/get_all_notes.dart';
-import '../../domain/usecases/search_notes.dart';
-import '../../domain/usecases/update_note.dart';
 import '../bloc/notes_bloc.dart';
 import '../bloc/notes_event.dart';
 import '../bloc/notes_state.dart';

@@ -14,6 +14,8 @@ import 'features/onboarding/presentation/pages/onboarding_page.dart';
 import 'features/settings/presentation/bloc/settings_bloc.dart';
 import 'features/settings/presentation/bloc/settings_state.dart';
 import 'features/settings/presentation/pages/settings_page.dart';
+import 'features/tasks/presentation/pages/tasks_list_page.dart';
+import 'features/tasks/presentation/pages/task_form_page.dart';
 import 'features/unit_converter/presentation/pages/unit_converter_page.dart';
 
 /// Main app widget and route host.
@@ -42,6 +44,8 @@ class SmartUtilityToolkitApp extends StatelessWidget {
               '/calculator': (_) => const CalculatorPage(),
               '/bmi': (_) => const BmiPage(),
               '/bill-splitter': (_) => const BillSplitterPage(),
+              '/tasks': (_) => const TasksListPage(),
+              '/tasks/form': (_) => const TaskFormPage(),
             },
           );
         },
@@ -123,6 +127,7 @@ class _AppShellState extends State<AppShell> {
   static const List<Widget> _pages = <Widget>[
     HomePage(),
     NotesListPage(),
+    TasksListPage(),
     SettingsPage(),
   ];
 
@@ -143,6 +148,7 @@ class _AppShellState extends State<AppShell> {
         destinations: const <NavigationDestination>[
           NavigationDestination(icon: Icon(Icons.home_outlined), label: AppStrings.home),
           NavigationDestination(icon: Icon(Icons.note_outlined), label: AppStrings.notes),
+          NavigationDestination(icon: Icon(Icons.checklist_outlined), label: AppStrings.tasks),
           NavigationDestination(icon: Icon(Icons.settings_outlined), label: AppStrings.settings),
         ],
       ),

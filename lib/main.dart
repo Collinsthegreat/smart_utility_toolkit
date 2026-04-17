@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'app.dart';
 import 'core/constants/app_constants.dart';
+import 'features/tasks/data/models/task_model.dart';
 import 'injection.dart';
 
 /// Custom [BlocObserver] used for logging transitions and errors.
@@ -22,7 +23,10 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = AppBlocObserver();
   await Hive.initFlutter();
+  Hive.registerAdapter(TaskModelAdapter());
+  
   await Hive.openBox<dynamic>(AppConstants.notesBox);
+  await Hive.openBox<dynamic>(AppConstants.tasksBox);
   await Hive.openBox<dynamic>(AppConstants.converterHistoryBox);
   await Hive.openBox<dynamic>(AppConstants.calculatorHistoryBox);
   await Hive.openBox<dynamic>(AppConstants.bmiHistoryBox);

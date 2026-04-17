@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
 import '../../../../core/constants/app_constants.dart';
@@ -88,7 +87,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                     : Theme.of(context)
                                         .colorScheme
                                         .onSurface
-                                        .withOpacity(0.2),
+                                        .withValues(alpha: 0.2),
                                 borderRadius: BorderRadius.circular(6),
                               ),
                             );
@@ -101,7 +100,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         children: <Widget>[
                           TextButton(
                             onPressed: _completeOnboarding,
-                            child: Text(AppStrings.skip),
+                            child: const Text(AppStrings.skip),
                           ),
                           ElevatedButton(
                             onPressed: () async {

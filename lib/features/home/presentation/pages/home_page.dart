@@ -114,7 +114,7 @@ class HomePage extends StatelessWidget {
                             ),
                             Expanded(
                               child: state.tools.isEmpty
-                                  ? Center(child: Text(AppStrings.noToolsFound))
+                                  ? const Center(child: Text(AppStrings.noToolsFound))
                                   : GridView.builder(
                                       itemCount: state.tools.length,
                                       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

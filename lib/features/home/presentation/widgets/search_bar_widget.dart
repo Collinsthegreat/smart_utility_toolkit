@@ -18,7 +18,7 @@ class SearchBarWidget extends StatelessWidget {
         hintText: AppStrings.searchTools,
         prefixIcon: const Icon(Icons.search),
         filled: true,
-        fillColor: Theme.of(context).colorScheme.surfaceVariant,
+        fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSizes.radiusSmall),
           borderSide: BorderSide.none,

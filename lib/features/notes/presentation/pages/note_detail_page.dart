@@ -62,10 +62,11 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        _saveNote();
-        return false;
+    return PopScope(
+      onPopInvokedWithResult: (bool didPop, dynamic result) {
+        if (!didPop) {
+          _saveNote();
+        }
       },
       child: Scaffold(
         appBar: AppBar(

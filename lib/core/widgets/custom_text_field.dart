@@ -10,6 +10,9 @@ class CustomTextField extends StatelessWidget {
     this.keyboardType,
     this.onChanged,
     this.errorText,
+    this.maxLines = 1,
+    this.maxLength,
+    this.textInputAction,
     super.key,
   });
 
@@ -28,16 +31,28 @@ class CustomTextField extends StatelessWidget {
   /// Optional error text.
   final String? errorText;
 
+  /// Maximum number of lines.
+  final int? maxLines;
+
+  /// Maximum characters allowed.
+  final int? maxLength;
+
+  /// Keyboard action type.
+  final TextInputAction? textInputAction;
+
   @override
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
       keyboardType: keyboardType,
       onChanged: onChanged,
+      maxLines: maxLines,
+      maxLength: maxLength,
+      textInputAction: textInputAction,
       decoration: InputDecoration(
         hintText: hint,
         filled: true,
-        fillColor: Theme.of(context).colorScheme.surfaceVariant,
+        fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
         contentPadding: const EdgeInsets.symmetric(
           horizontal: AppSizes.md,
           vertical: AppSizes.sm,

@@ -18,7 +18,7 @@ class ConversionInput extends StatelessWidget {
       decoration: InputDecoration(
         hintText: AppStrings.convert,
         filled: true,
-        fillColor: Theme.of(context).colorScheme.surfaceVariant,
+        fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
         contentPadding: const EdgeInsets.symmetric(
           horizontal: AppSizes.md,
           vertical: AppSizes.sm,

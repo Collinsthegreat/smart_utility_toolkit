@@ -48,7 +48,7 @@ class ConverterBloc extends Bloc<ConverterEvent, ConverterState> {
   void _onCategoryChanged(ConversionCategoryChanged event, Emitter<ConverterState> emit) {
     final List<String> catUnits = units[event.category] ?? <String>['m', 'km'];
     emit(state.copyWith(category: event.category, from: catUnits.first, to: catUnits.last, input: '', output: '0'));
-    add(ConversionHistoryRequested());
+    add(const ConversionHistoryRequested());
   }
 
   void _onUnitChanged(ConversionUnitChanged event, Emitter<ConverterState> emit) {

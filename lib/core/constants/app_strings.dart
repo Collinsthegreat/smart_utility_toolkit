@@ -57,5 +57,26 @@ abstract final class AppStrings {
   static const String currency = 'Currency';
   static const String results = 'Results';
   static const String noToolsFound = 'No matching tools found.';
+  
+  // Tasks Feature Strings
+  static const String tasks = 'Tasks';
+  static const String myTasks = 'My Tasks';
+  static const String newTask = 'New Task';
+  static const String editTask = 'Edit Task';
+  static const String noTasksFound = 'No tasks found.';
+  static const String taskTitle = 'Task Title';
+  static const String taskTitleHint = 'e.g., Buy groceries';
+  static const String taskDescription = 'Description (Optional)';
+  static const String taskDescriptionHint = 'Add any details...';
+  static const String priority = 'Priority';
+  static const String priorityLow = 'Low';
+  static const String priorityMedium = 'Medium';
+  static const String priorityHigh = 'High';
+  static const String taskCreated = 'Task created successfully';
+  static const String taskUpdated = 'Task updated successfully';
+  static const String taskDeleted = 'Task deleted';
+  static const String filterAll = 'All';
+  static const String filterActive = 'Active';
+  static const String filterCompleted = 'Completed';
 }
 

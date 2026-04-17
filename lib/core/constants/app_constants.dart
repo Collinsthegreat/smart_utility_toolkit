@@ -27,6 +27,9 @@ abstract final class AppConstants {
   /// Settings box key.
   static const String settingsBox = 'settings_box';
 
+  /// Tasks box key.
+  static const String tasksBox = 'tasks_box';
+
   /// Current version display.
   static const String appVersion = '1.0.0';
 }

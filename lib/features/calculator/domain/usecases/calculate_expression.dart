@@ -12,7 +12,7 @@ class CalculateExpression {
       // Handle leading negative
       String processStr = sanitized;
       if (processStr.startsWith('-')) {
-        processStr = '0' + processStr;
+        processStr = '0$processStr';
       }
 
       final RegExp tokenRegExp = RegExp(r'(\d*\.?\d+|[+\-*/])');
